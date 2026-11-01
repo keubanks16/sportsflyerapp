@@ -1,7 +1,5 @@
-name = "sports-flyer-ai"
-main = "worker.js"
+name = "sportsflyerapp"
 compatibility_date = "2026-10-01"
 
-[vars]
-ALLOWED_ORIGIN = "https://keubanks16.github.io"
-IMAGE_MODEL = "gpt-image-1.5"
+[assets]
+directory = "./public"
