@@ -25,3 +25,4 @@ The model produces **background artwork only**. All names, dates, phone numbers 
 Uploaded logos are composited locally on the flyer, never sent to the OpenAI API. Saving a project stores text/settings in localStorage, not the image or logo.
 
 API image output is 1024 × 1536; larger PNG exports upscale the composition and do not add native artwork detail.
+
