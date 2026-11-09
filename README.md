@@ -1,14 +1,14 @@
 # Sports Flyer Studio — AI Edition
 
-A browser-based sports flyer generator with OpenAI image generation and editable, precisely rendered text overlays.
+A browser-based sports flyer generator with AI image generation and editable, precisely rendered text overlays.
 
 ## Architecture
 
 - `index.html`: static frontend, deployable on GitHub Pages.
-- `worker.js`: Cloudflare Worker backend that calls OpenAI securely.
+- `worker.js`: Cloudflare Worker backend that calls AI securely.
 - `wrangler.toml`: Worker configuration.
 
-**Never place an OpenAI API key in HTML, JavaScript served to browsers, GitHub repository files, or localStorage.**
+**Never place an AI API key in HTML, JavaScript served to browsers, GitHub repository files, or localStorage.**
 
 ## Deploy backend
 
@@ -18,11 +18,11 @@ A browser-based sports flyer generator with OpenAI image generation and editable
 4. Open the frontend and enter the Worker URL and app access token under Connection Settings.
 5. Enable GitHub Pages for `main` / root.
 
-For production/public use, replace the shared token with authenticated accounts and per-user rate limits/quotas; the shared token alone does not prevent abuse if distributed. Set Cloudflare spending and OpenAI project budget limits. Each Generate and Regenerate action can incur API charges.
+For production/public use, replace the shared token with authenticated accounts and per-user rate limits/quotas; the shared token alone does not prevent abuse if distributed. Set Cloudflare spending and AI project budget limits. Each Generate and Regenerate action can incur API charges.
 
 The model produces **background artwork only**. All names, dates, phone numbers and registration URLs are rendered by the browser as editable text, preventing AI text hallucinations. Image edits regenerate the artwork from a revised prompt rather than preserving exact pixels.
 
-Uploaded logos are composited locally on the flyer, never sent to the OpenAI API. Saving a project stores text/settings in localStorage, not the image or logo.
+Uploaded logos are composited locally on the flyer, never sent to the AI API. Saving a project stores text/settings in localStorage, not the image or logo.
 
 API image output is 1024 × 1536; larger PNG exports upscale the composition and do not add native artwork detail.
 

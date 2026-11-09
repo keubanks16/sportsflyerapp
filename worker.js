@@ -17,7 +17,7 @@ export default {async fetch(request,env){
  const controller=new AbortController();const timer=setTimeout(()=>controller.abort(),115000);
  try{
   const response=await fetch('https://api.openai.com/v1/images/generations',{method:'POST',signal:controller.signal,headers:{Authorization:'Bearer '+env.OPENAI_API_KEY,'Content-Type':'application/json'},body:JSON.stringify({model:env.IMAGE_MODEL||'gpt-image-1.5',prompt,size:'1024x1536',quality:'high',n:1})});
-  const body=await response.json().catch(()=>({}));if(!response.ok)return Response.json({error:body.error?.message||'OpenAI image request failed'},{status:response.status,headers});
+  const body=await response.json().catch(()=>({}));if(!response.ok)return Response.json({error:body.error?.message||'AI image request failed'},{status:response.status,headers});
   const b64=body.data?.[0]?.b64_json;if(!b64)return Response.json({error:'No image was returned'},{status:502,headers});
   return Response.json({image:'data:image/png;base64,'+b64},{headers});
  }catch(e){return Response.json({error:e.name==='AbortError'?'Generation timed out':String(e.message||e)},{status:502,headers})}finally{clearTimeout(timer)}
